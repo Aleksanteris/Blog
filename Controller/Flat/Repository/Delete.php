@@ -64,7 +64,7 @@ class Delete extends \Magento\Framework\App\Action\Action
         /** @var \Aleksanteris\Blog\Model\Advertisement $advertisement1 */
         $advertisement1 = $this->advertisementFactory->create();
 
-        $this->advertisementResource->load($advertisement1, 5);
+        $this->advertisementResource->load($advertisement1, 22);
 
         var_dump($this->advertisementRepository->delete($advertisement1));
 

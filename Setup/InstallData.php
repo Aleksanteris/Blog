@@ -7,7 +7,6 @@ use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Aleksanteris\Blog\Model\ArticleFactory;
 use Aleksanteris\Blog\Model\ResourceModel\Article as ArticleResource;
-use Aleksanteris\Blog\Setup\ArticleSetupFactory;
 
 class InstallData implements InstallDataInterface
 {
@@ -93,7 +92,7 @@ class InstallData implements InstallDataInterface
         );
         $article1->setViews(4);
         $article1->setPublicationPrice(11.44);
-        $article1->setPaymentDate('2018-10-15');
+        $article1->setPaymentDate('2018-10-15 09:09:09');
         $this->articleResource->save($article1);
 
         /** @var \Aleksanteris\Blog\Model\Article $article2 */
@@ -111,7 +110,7 @@ class InstallData implements InstallDataInterface
         );
         $article2->setViews(11);
         $article2->setPublicationPrice(15.24);
-        $article2->setPaymentDate('2018-10-11');
+        $article2->setPaymentDate('2018-10-11 10:10:10');
         $this->articleResource->save($article2);
 
         /** @var \Aleksanteris\Blog\Model\Article $article3 */
@@ -127,7 +126,7 @@ class InstallData implements InstallDataInterface
         );
         $article3->setViews(15);
         $article3->setPublicationPrice(7.65);
-        $article3->setPaymentDate('2018-11-12');
+        $article3->setPaymentDate('2018-11-12 11:11:11');
         $this->articleResource->save($article3);
 
         /** @var \Aleksanteris\Blog\Model\Article $article4 */
@@ -144,7 +143,7 @@ class InstallData implements InstallDataInterface
         );
         $article4->setViews(11);
         $article4->setPublicationPrice(11.44);
-        $article4->setPaymentDate('2018-10-11');
+        $article4->setPaymentDate('2018-10-11 12:12:12');
         $this->articleResource->save($article4);
 
         /** @var \Aleksanteris\Blog\Model\Article $article5 */
@@ -160,7 +159,7 @@ class InstallData implements InstallDataInterface
         );
         $article5->setViews(28);
         $article5->setPublicationPrice(15.38);
-        $article5->setPaymentDate('2018-11-27');
+        $article5->setPaymentDate('2018-11-27 13:13:13');
         $this->articleResource->save($article5);
 
         /** @var \Aleksanteris\Blog\Model\Article $article6 */
@@ -175,7 +174,7 @@ class InstallData implements InstallDataInterface
         );
         $article6->setViews(34);
         $article6->setPublicationPrice(27.37);
-        $article6->setPaymentDate('2018-11-21');
+        $article6->setPaymentDate('2018-11-21 14:14:14');
         $this->articleResource->save($article6);
 
         $setup->endSetup();

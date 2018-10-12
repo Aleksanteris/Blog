@@ -114,13 +114,6 @@ class InstallSchema implements InstallSchemaInterface
                 'Country'
             )
             ->addColumn(
-                'ordinal_number',
-                \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
-                null,
-                ['unsigned' => true, 'nullable' => false],
-                'Ordinal_number'
-            )
-            ->addColumn(
                 'created_at',
                 \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                 null,

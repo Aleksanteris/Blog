@@ -1,14 +1,14 @@
 <?php
 
-namespace Aleksanteris\Blog\Controller\Flat\Repository;
+namespace Aleksanteris\Blog\Controller\Flat;
 
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Aleksanteris\Blog\Model\AdvertisementFactory;
+use Aleksanteris\Blog\Model\ResourceModel\Advertisement\CollectionFactory;
 use Aleksanteris\Blog\Model\ResourceModel\Advertisement as AdvertisementResource;
-use Aleksanteris\Blog\Api\AdvertisementRepositoryInterface;
 
-class Save extends \Magento\Framework\App\Action\Action
+class ShowCollection extends \Magento\Framework\App\Action\Action
 {
     /**
      * @var PageFactory
@@ -26,29 +26,29 @@ class Save extends \Magento\Framework\App\Action\Action
     protected $advertisementResource;
 
     /**
-     * @var AdvertisementRepositoryInterface
+     * @var CollectionFactory
      */
-    protected $advertisementRepository;
+    protected $collectionFactory;
 
     /**
      * @param Context $context
      * @param PageFactory $resultPageFactory
      * @param AdvertisementFactory $advertisementFactory
      * @param AdvertisementResource $advertisementResource
-     * @param AdvertisementRepositoryInterface $advertisementRepository
+     * @param CollectionFactory $collectionFactory
      */
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
         AdvertisementFactory $advertisementFactory,
         AdvertisementResource $advertisementResource,
-        AdvertisementRepositoryInterface $advertisementRepository
+        CollectionFactory $collectionFactory
     ){
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
         $this->advertisementFactory = $advertisementFactory;
         $this->advertisementResource = $advertisementResource;
-        $this->advertisementRepository = $advertisementRepository;
+        $this->collectionFactory = $collectionFactory;
     }
 
     /**
@@ -59,17 +59,12 @@ class Save extends \Magento\Framework\App\Action\Action
     {
         /** @var \Magento\Framework\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__('Save'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Show Collection'));
 
-        /** @var \Aleksanteris\Blog\Model\Advertisement $advertisement1 */
-        $advertisement1 = $this->advertisementFactory->create();
+        /** @var \Aleksanteris\Blog\Model\ResourceModel\Advertisement\Collection $collection */
+        $collection = $this->collectionFactory->create();
 
-        $advertisement1->setCategory('Test2');
-        $advertisement1->setDescription('For sale');
-        $advertisement1->setPrice(333.333);
-        $advertisement1->setCount(3);
-
-        var_dump($this->advertisementRepository->save($advertisement1)->toArray());
+        var_dump($collection->toArray());
 
         exit();
 

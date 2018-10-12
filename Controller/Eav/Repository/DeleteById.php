@@ -43,7 +43,7 @@ class DeleteById extends \Magento\Framework\App\Action\Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__('Delete By Id'));
 
-        var_dump($this->articleRepository->deleteById(4));
+        var_dump($this->articleRepository->deleteById(7));
 
         exit();
 

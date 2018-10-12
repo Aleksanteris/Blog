@@ -83,7 +83,7 @@ class ArticleRepository implements \Aleksanteris\Blog\Api\ArticleRepositoryInter
         $article = $this->articleFactory->create();
         $this->articleResource->load($article, $articleId);
         if (!$article->getId()) {
-            throw new NoSuchEntityException(__('Advertisement with id "%1" does not exist!', $articleId));
+            throw new NoSuchEntityException(__('Article with id "%1" does not exist!', $articleId));
         }
         return $article;
     }

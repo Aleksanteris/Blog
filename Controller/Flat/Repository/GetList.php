@@ -70,37 +70,38 @@ class GetList extends \Magento\Framework\App\Action\Action
         /** @var \Magento\Framework\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__('Get List'));
-        //TODO: Заполнить значения под свою таблицу
+
         $filter1 = $this->filterBuilder
-            ->setField('name')
-            ->setValue('Play Station')
-            ->setConditionType('like')
+            ->setField('Category')
+            ->setValue('Cars')
+            ->setConditionType('eq')
             ->create();
 
         $filter2 = $this->filterBuilder
-            ->setField('goods_id')
-            ->setValue('5')
-            ->setConditionType('like')
+            ->setField('Category')
+            ->setValue('Watches')
+            ->setConditionType('eq')
             ->create();
 
         $filter3 = $this->filterBuilder
-            ->setField('name')
-            ->setValue('Play St%')
-            ->setConditionType('like')
+            ->setField('count')
+            ->setValue(7)
+            ->setConditionType('eq')
             ->create();
 
-        $filter_group1 = $this->filterGroupBuilder
+        $filterGroup1 = $this->filterGroupBuilder
             ->setFilters([$filter1, $filter2])
             ->create();
 
-        $filter_group2 = $this->filterGroupBuilder
+        $filterGroup2 = $this->filterGroupBuilder
             ->setFilters([$filter3])
             ->create();
 
-        $search_criteria = $this->searchCriteriaFactory->create();
-        $search_criteria->setFilterGroups([$filter_group1, $filter_group2]);
+        /** @var \Magento\Framework\Api\SearchCriteria $searchCriteria */
+        $searchCriteria = $this->searchCriteriaFactory->create();
+        $searchCriteria->setFilterGroups([$filterGroup1, $filterGroup2]);
 
-        $result = $this->advertisementRepository->getList($search_criteria);
+        $result = $this->advertisementRepository->getList($searchCriteria);
         var_dump($result->getItems());
 
         exit();

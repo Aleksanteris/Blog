@@ -63,17 +63,17 @@ class Save extends \Magento\Framework\App\Action\Action
 
         /** @var \Aleksanteris\Blog\Model\Article $article1 */
         $article1 = $this->articleFactory->create();
-        //TODO: Заполнить значения под свою таблицу
-        $article1->setRubric('');
-        $article1->setCountry('');
-        $article1->setTitle('');
-        $article1->setNote('');
-        $article1->setContent('');
-        $article1->setViews(4);
-        $article1->setPublicationPrice(11.44);
-        $article1->setPaymentDate('2018-10-11');
 
-        var_dump($this->articleRepository->save($article1));
+        $article1->setRubric('Test Rubric');
+        $article1->setCountry('TST');
+        $article1->setTitle('Test Title');
+        $article1->setNote('Test Note');
+        $article1->setContent('Test Content');
+        $article1->setViews(8);
+        $article1->setPublicationPrice(12.12);
+        $article1->setPaymentDate('2018-10-11 09:09:09');
+
+        var_dump($this->articleRepository->save($article1)->toArray());
 
         exit();
 

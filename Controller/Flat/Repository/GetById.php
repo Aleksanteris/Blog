@@ -43,7 +43,7 @@ class GetById extends \Magento\Framework\App\Action\Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__('Get By Id'));
 
-        var_dump($this->advertisementRepository->getById(8));
+        var_dump($this->advertisementRepository->getById(8)->toArray());
 
         exit();
 
