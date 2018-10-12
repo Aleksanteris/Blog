@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Aleksanteris\Blog\Api\Data\AdvertisementSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    <preference for="Aleksanteris\Blog\Api\Data\ArticleSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Aleksanteris\Blog\Api\Data\AdvertisementInterface" type="Aleksanteris\Blog\Model\Advertisement" />
+    <preference for="Aleksanteris\Blog\Api\Data\ArticleInterface" type="Aleksanteris\Blog\Model\Article" />
+
+    <preference for="Aleksanteris\Blog\Api\AdvertisementRepositoryInterface" type="Aleksanteris\Blog\Model\AdvertisementRepository" />
+    <preference for="Aleksanteris\Blog\Api\ArticleRepositoryInterface" type="Aleksanteris\Blog\Model\ArticleRepository" />
+
+    <virtualType name="Aleksanteris\Blog\Model\Api\SearchCriteria\AdvertisementCollectionProcessor" type="Magento\Framework\Api\SearchCriteria\CollectionProcessor">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="filters" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\FilterProcessor</item>
+                <item name="sorting" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\SortingProcessor</item>
+                <item name="pagination" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\PaginationProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aleksanteris\Blog\Model\Api\SearchCriteria\ArticleCollectionProcessor" type="Magento\Eav\Model\Api\SearchCriteria\CollectionProcessor">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="filters" xsi:type="object">Magento\Eav\Model\Api\SearchCriteria\CollectionProcessor\FilterProcessor</item>
+                <item name="sorting" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\SortingProcessor</item>
+                <item name="pagination" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\PaginationProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Aleksanteris\Blog\Model\AdvertisementRepository">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">Aleksanteris\Blog\Model\Api\SearchCriteria\AdvertisementCollectionProcessor</argument>
+        </arguments>
+    </type>
+    <type name="Aleksanteris\Blog\Model\ArticleRepository">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">Aleksanteris\Blog\Model\Api\SearchCriteria\ArticleCollectionProcessor</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+                                     <!--Flat-->
+    <route url="/V1/blog/advertisement" method="POST">
+        <service class="Aleksanteris\Blog\Api\AdvertisementRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/blog/advertisement/:advertisementId" method="DELETE">
+        <service class="Aleksanteris\Blog\Api\AdvertisementRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/blog/advertisement/:advertisementId" method="GET">
+        <service class="Aleksanteris\Blog\Api\AdvertisementRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/blog/advertisement/search" method="GET">
+        <service class="Aleksanteris\Blog\Api\AdvertisementRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+                                    <!--Eav-->
+    <route url="/V1/blog/article" method="POST">
+        <service class="Aleksanteris\Blog\Api\ArticleRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/blog/article/:articleId" method="DELETE">
+        <service class="Aleksanteris\Blog\Api\ArticleRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/blog/article/:articleId" method="GET">
+        <service class="Aleksanteris\Blog\Api\ArticleRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/blog/article/search" method="GET">
+        <service class="Aleksanteris\Blog\Api\ArticleRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
