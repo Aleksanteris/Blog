@@ -77,7 +77,7 @@ class InstallData implements InstallDataInterface
         ];
 
         $setup->getConnection()->insertMultiple($setup->getTable('a_advertisement'), $advertisementData);
-
+//TODO: Можно ли через insertMultiple заполнить таблицы EAV
         /** @var \Aleksanteris\Blog\Model\Article $article1 */
         $article1 = $this->articleFactory->create();
         $article1->setRubric('Sport');

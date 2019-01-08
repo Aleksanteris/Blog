@@ -2,6 +2,7 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
                                      <!--Flat-->
+    <!--TODO: Сделать доступ по токену (кастомера), чтобы отдавал JsonFormat -->
     <route url="/V1/blog/advertisement" method="POST">
         <service class="Aleksanteris\Blog\Api\AdvertisementRepositoryInterface" method="save"/>
         <resources>

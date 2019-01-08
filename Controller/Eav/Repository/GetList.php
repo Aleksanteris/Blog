@@ -9,8 +9,10 @@ use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\Search\FilterGroupBuilder;
 use Magento\Framework\Api\SearchCriteriaInterfaceFactory;
 
+
 class GetList extends \Magento\Framework\App\Action\Action
 {
+    //TODO: bilder череp DI
     /**
      * @var PageFactory
      */

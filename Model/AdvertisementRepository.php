@@ -12,6 +12,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 class AdvertisementRepository implements \Aleksanteris\Blog\Api\AdvertisementRepositoryInterface
 {
+    //TODO: Перенести все работы с данными в репозиорий
     /**
      * @var \Aleksanteris\Blog\Model\AdvertisementFactory;
      */
@@ -57,7 +58,7 @@ class AdvertisementRepository implements \Aleksanteris\Blog\Api\AdvertisementRep
         $this->searchResultFactory = $searchResultFactory;
         $this->collectionProcessor = $collectionProcessor;
     }
-
+//TODO: Поставить CodeSniffer MPQ
     /**
      * @param \Aleksanteris\Blog\Api\Data\AdvertisementInterface $advertisement
      * @return \Aleksanteris\Blog\Api\Data\AdvertisementInterface
